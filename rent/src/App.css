@@ -1,38 +1,196 @@
-.App {
-  text-align: center;
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html {
+  box-sizing: border-box;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+/*Buttons*/
+.btn {
+  padding: 0.3rem 1rem;
+  margin: 0.5rem;
+  background: rgb(58, 170, 207);
   color: white;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  transition-duration: 0.4s;
 }
 
-.App-link {
-  color: #61dafb;
+.btn:hover {
+  background: rgb(111, 185, 209);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.btn-danger {
+  background: red;
+}
+
+.btn-danger:hover {
+  background: rgb(255, 72, 72);
+}
+
+.btn-filler {
+  background: none;
+  color: rgb(58, 170, 207);
+  border: 1px solid rgb(58, 170, 207);
+  transition-duration: 0.4s;
+}
+
+.btn-filler:hover {
+  background: rgb(58, 170, 207);
+  color: white;
+  border: 1px solid rgb(58, 170, 207);
+}
+
+/*Form*/
+.input {
+  box-sizing: border-box;
+  padding: 0.2rem 1rem;
+  margin: 0.2rem 1rem;
+  width: 80%;
+  border: 1px solid rgb(190, 190, 190);
+  border-radius: 5px;
+}
+
+/*Alert*/
+.alert {
+  padding: 0.8rem;
+  margin: 1rem 0;
+  opacity: 0.9;
+  background: #f4f4f4;
+  color: #333;
+}
+
+.alert-primary {
+  background: #17a2b8;
+  color: #fff;
+}
+
+.alert-danger {
+  background: #dc3545;
+  color: #fff;
+}
+
+.alert-success {
+  background: #28a745;
+  color: #fff;
+}
+
+/*Landing*/
+
+.landing {
+  height: 10%;
+  background: lightblue;
+}
+
+.landing-content {
+  padding: 15% 20% 15% 0rem;
+  color: white;
+  text-align: right;
+}
+
+.landing-content h1 {
+  font-size: 70px;
+}
+
+@media screen and (min-width: 768px) {
+  .landing {
+    height: 90vh;
+    background: lightblue;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+/*Navbar*/
+
+.navbar {
+  background-color: white;
+  color: black;
+  padding-left: 30px;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 4px 5px #b6b6b6;
+}
+
+.navbar-fixed {
+  list-style: none;
+}
+
+.navTitle {
+  display: inline-block;
+  text-decoration: none;
+  color: rgb(41, 115, 158);
+  font-family: Cursive;
+  font-size: 30px;
+  padding: 1rem 1rem;
+}
+
+.content a {
+  display: inline-block;
+  padding: 1rem 1rem;
+  text-decoration: none;
+  color: black;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+.collapsible__content {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 1s;
+}
+
+.nav-toggler {
+  color: black;
+  font-size: 40px;
+  opacity: 0.5;
+  transition: box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.content {
+  list-style-type: none;
+  transition: all 0.6s;
+}
+
+.navbar ul a:hover {
+  color: white;
+  background-color: lightblue;
+}
+
+@media screen and (min-width: 768px) {
+  .navbar {
+    display: flex;
+    height: 10vh;
+  }
+
+  .navbar-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+  }
+
+  .content {
+    display: flex;
+  }
+
+  .content a {
+    height: 10vh;
+    padding: 4vh 15px;
+  }
+
+  .nav-toggler {
+    display: none;
+  }
+
+  .collapsible__content {
+    max-height: 100%;
+    overflow: hidden;
+    opacity: 1;
+    transition: all 0.3s;
   }
 }
