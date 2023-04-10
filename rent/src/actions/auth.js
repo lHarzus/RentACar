@@ -2,6 +2,8 @@ import axios from "axios";
 import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
+  REGISTER_SUCCESS,
+  REGISTER_FAIL,
   USER_LOADED,
   AUTH_ERROR,
   LOGOUT,
@@ -64,6 +66,47 @@ export const login = (username, password) => async dispatch => {
     });
   }
 };
+
+//Register user
+export const register =
+  (email, username, password, name, address, phone) => async dispatch => {
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    const body = JSON.stringify({
+      email,
+      username,
+      password,
+      name,
+      address,
+      phone,
+    });
+
+    try {
+      const res = await axios.post(
+        "https://fakestoreapi.com/users",
+        body,
+        config
+      );
+
+      dispatch({
+        type: REGISTER_SUCCESS,
+        payload: res.data,
+      });
+      dispatch(setAlert("Account created", "success"));
+    } catch (err) {
+      const errors = err.response.data;
+      if (errors) {
+        //errors.forEach(error => dispatch(setAlert(error.msg, "danger")));
+        dispatch(setAlert(errors, "danger"));
+      }
+      dispatch({
+        type: REGISTER_FAIL,
+      });
+    }
+  };
 
 //Logout / Clear profile
 export const logout = () => dispatch => {

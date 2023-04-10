@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 const Landing = ({ isAuthenticated }) => {
   return (
-    <div className="landing">
+    <div className="landing block--arrow-upside">
       <div className="landing-content">
         <h1>My Shopping Website</h1>
         <p>Showcase of products using Fake Store API</p>

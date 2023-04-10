@@ -3,6 +3,7 @@ import { Link, Navigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import { login } from "../../actions/auth";
 import { connect } from "react-redux";
+import Alert from "../layout/Alert";
 
 const Login = ({ login, isAuthenticated }) => {
   const [formData, setFormData] = useState({
@@ -26,9 +27,10 @@ const Login = ({ login, isAuthenticated }) => {
 
   return (
     <div>
-      <h1>Login</h1>
-      <form onSubmit={e => onSubmit(e)}>
-        <div>
+      <form className="form" onSubmit={e => onSubmit(e)}>
+        <h1>Login</h1>
+        <Alert />
+        <div className="form-input">
           <input
             className="input"
             type="text"
@@ -38,7 +40,7 @@ const Login = ({ login, isAuthenticated }) => {
             onChange={e => onChange(e)}
           />
         </div>
-        <div>
+        <div className="form-input">
           <input
             className="input"
             type="password"
@@ -48,7 +50,7 @@ const Login = ({ login, isAuthenticated }) => {
             onChange={e => onChange(e)}
           />
         </div>
-        <div>
+        <div className="form-input">
           <input type="submit" className="btn btn-filler" value="Sign in" />
         </div>
       </form>
