@@ -215,6 +215,7 @@ p.bold {
   align-items: center;
   padding: 1rem 1rem;
   text-decoration: none;
+  margin: 1rem;
   color: black;
   transition: background-color 0.5s, color 0.5s;
 }
@@ -501,6 +502,11 @@ p.bold {
   cursor: pointer;
 }
 
+.disable {
+  color: #b6b6b6;
+  cursor: not-allowed;
+}
+
 /*Product*/
 .single-product {
   border: 1px solid var(--color-primary);
@@ -560,4 +566,131 @@ p.bold {
 .dashboard-header {
   margin: 3rem 0;
   text-align: center;
+}
+
+/*Cart*/
+
+.cart {
+  margin: 10rem 3% 10rem 18%;
+  box-shadow: 0px 0px 50px 10px rgba(0, 0, 0, 0.2);
+  padding: 3%;
+  border-radius: 10px;
+  grid-column: 1 / span 2;
+  grid-row: 1;
+}
+
+.cart-item {
+  margin: 2rem;
+  border-bottom: 1px solid rgb(197, 197, 197);
+  position: relative;
+}
+
+.cart-title {
+  display: grid;
+  grid-template-columns: 30% 80%;
+  align-items: center;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+
+.cart-item img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+}
+
+.cart-amount {
+  border: 1px solid rgb(197, 197, 197);
+  border-radius: 5px;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.amount {
+  margin: 2rem;
+}
+
+.cart-item-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-item .plus,
+.cart-item .minus {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.cart-item .disable {
+  font-size: 1.5rem;
+}
+
+.cart-price {
+  text-align: right;
+}
+
+.cart header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cart-title h3 {
+  width: 80%;
+}
+
+.cart h2 {
+  color: var(--color-primary);
+}
+
+.cart-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.cart-shipping {
+  margin: 10rem 18% 3rem 3%;
+  box-shadow: 0px 0px 50px 10px rgba(0, 0, 0, 0.2);
+  padding: 3%;
+  border-radius: 10px;
+}
+
+.cart-subtotal {
+  margin: 3rem 18% 2rem 3%;
+  box-shadow: 0px 0px 50px 10px rgba(0, 0, 0, 0.2);
+  padding: 3%;
+  border-radius: 10px;
+}
+
+.cart-subtotal .btn {
+  width: 95%;
+}
+
+.inline-space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-taxes {
+  padding: 1rem;
+  color: #777;
+  border-bottom: 1px solid #232323;
+}
+
+.shipping-details {
+  padding: 1rem;
+  color: #777;
+}
+
+@media screen and (max-width: 768px) {
+  .cart-grid {
+    display: block;
+  }
+
+  .cart-shipping,
+  .cart-subtotal,
+  .cart {
+    margin: 5rem 10% 5rem 10%;
+  }
 }

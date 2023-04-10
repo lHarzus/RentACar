@@ -16,3 +16,7 @@ export const CATEGORIES_ERROR = "CATEGORIES_ERROR";
 export const ADD_CART = "ADD_CART";
 export const UPDATE_CART = "UPDATE_CART";
 export const REMOVE_CART = "REMOVE_CART";
+export const REMOVE_ALLCART = "REMOVE_ALLCART";
+export const DELETE_CART = "DELETE_CART";
+export const GET_USER = "GET_USER";
+export const USER_ERROR = "USER_ERROR";

@@ -7,6 +7,8 @@ import {
   USER_LOADED,
   AUTH_ERROR,
   LOGOUT,
+  GET_USER,
+  USER_ERROR,
 } from "../actions/types";
 import setAuthToken from "../utils/setAuthToken";
 import { setAlert } from "./alert";
@@ -111,4 +113,19 @@ export const register =
 //Logout / Clear profile
 export const logout = () => dispatch => {
   dispatch({ type: LOGOUT });
+};
+
+//Login user
+export const getUser = userId => async dispatch => {
+  try {
+    const res = await axios.get(`https://fakestoreapi.com/users/${userId}`);
+    dispatch({
+      type: GET_USER,
+      payload: res.data,
+    });
+  } catch (err) {
+    dispatch({
+      type: USER_ERROR,
+    });
+  }
 };

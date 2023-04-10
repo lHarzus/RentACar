@@ -7,6 +7,10 @@ import {
   UPDATE_CART,
   ADD_CART,
   REMOVE_CART,
+  REMOVE_ALLCART,
+  DELETE_CART,
+  GET_USER,
+  USER_ERROR,
 } from "../actions/types";
 
 const initialState = {
@@ -16,6 +20,7 @@ const initialState = {
   isAuthenticated:
     localStorage.getItem("token") && localStorage.getItem("id") ? true : false,
   cart: [],
+  user: null,
 };
 
 export default function AUTH(state = initialState, action) {
@@ -57,6 +62,11 @@ export default function AUTH(state = initialState, action) {
           cart: [...state.cart, payload],
         };
       }
+    case GET_USER:
+      return {
+        ...state,
+        user: payload,
+      };
     case REMOVE_CART:
       let newCart2 = state.cart;
       let remove = false;
@@ -82,7 +92,31 @@ export default function AUTH(state = initialState, action) {
         ...state,
         cart: payload,
       };
+    case REMOVE_ALLCART:
+      let newCart3 = state.cart;
+      let remove2 = false;
+      let index2 = -1;
+      for (const c in newCart3) {
+        if (newCart3[c].id === payload.id) {
+          remove2 = true;
+          index2 = c;
+        }
+      }
+      if (remove2) {
+        if (newCart3.length === 1) newCart3 = [];
+        else newCart3.splice(index2, 1);
+      }
+      return {
+        ...state,
+        cart: [...newCart3],
+      };
+    case DELETE_CART:
+      return {
+        ...state,
+        cart: [],
+      };
     case AUTH_ERROR:
+    case GET_USER:
     case LOGIN_FAIL:
     case LOGOUT:
       localStorage.removeItem("token");
@@ -94,6 +128,7 @@ export default function AUTH(state = initialState, action) {
         loading: false,
         userId: null,
         cart: [],
+        user: null,
       };
     default:
       return state;
